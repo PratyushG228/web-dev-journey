@@ -17,3 +17,20 @@ This repository contains all the projects I build while learning JavaScript.
 - [ ] Quiz App
 
 Every project is built by me while learning.
+
+## Concepts Learned
+
+- Variables
+- Functions
+- Conditions
+- DOM Manipulation
+- Events
+- Arrays
+- Loops
+
+## Concepts Coming Next
+
+- Objects
+- Higher Order Functions
+- Local Storage
+- Async JavaScript
