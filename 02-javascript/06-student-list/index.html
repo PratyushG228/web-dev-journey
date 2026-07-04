@@ -23,55 +23,49 @@
 
       let name = stdname.value.trim();
 
-      if(name == ""){
-        return
+      if(name === "") return; // for one line this way can be written.
+        
+      if(isDuplicate(name)){
+        return;
       }
-//========================          Logic for DUPLICATE NAMES        ======================================
-          for (let i = 0; i < student.length; i++) {
-              if (student[i] === name) {
-                  return;
+  
+      student.push(name);
+
+      updateStudentList();
+
+      updateCount();
+
+      stdname.value = "";  
+
+      stdname.focus();
+
+     
+    })
+
+     function isDuplicate(name){
+
+        for (let i = 0; i < student.length; i++) {
+              if (student[i].toLowerCase() === name.toLowerCase()) {
+                  return true;
               }
 
           }
-
-          student.push(name);  //adding names only after checking duplicate.
-//=========================================================================================================
-
-//===================        Modern JS loigic for DUPLICATION OF NAMES.      ==============================
-
-          // if(student.includes(name)){
-          //   return;
-          // }
-
-//=========================================================================================================
-
-      count.textContent = `Total Students: ${student.length}`; 
-
-      //###  stdname.textContent = ""; // stdname is an input. Inputs don't use .textContent.
-      
-      stdname.value = "";  // inputs use .value to change them. Now this clears the input
-
-      // Update with loops 
-
-      studentList.innerHTML = ""; // clears <ul>
-      
-
-//=============================         Error 1         ===================================================
-
-      // for(i=0; i<Number(student.length) ; i++){  // this is not working becuase
-                                                    //  1. comparng std.length and std{1} this is number v string so doesnt work.
-                                                    // 2.another bug; we are already pushing the name so array becomes; array = {ram, john , john} but theres already duplicate name added so it wont stop duplication of names.
-      //   if(student.length -1 == student[i]){
-      //     return;
-      //   }
-      // }
-
-//========================================================================================================
-
-      for(i=0 ; i<Number(student.length) ; i++){
-        studentList.innerHTML += `<li>${student[i]}</li>`;
+          return false;
       }
-    })
+
+      function updateCount(){
+        count.textContent = `Total Students: ${student.length}`; 
+      }
+
+      function updateStudentList(){
+
+        studentList.innerHTML = "";
+
+        for(let i=0 ; i<student.length ; i++){  // no need Number(student.length) its already number
+        studentList.innerHTML += `<li>${student[i]}</li>`;
+        }
+      }
+      
 
   </script>
   
