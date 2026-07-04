@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <h1>BMI Calculator</h1>
+
+  <label for="height">Height (cm):</label>
+  <input type="number" id="height">
+  <br><br>
+
+  <label for="weight">Weight (kg):</label>
+  <input type="number" id="weight">
+  <br><br>
+
+  <button id="calcBtn">Calculate</button>
+
+  <!-- Error or validation message -->
+  <p id="check"></p>
+
+  <!-- BMI result -->
+  <h3 id="resultIndex">BMI:</h3>
+
+  <!-- BMI category -->
+  <h3 id="resultCategory">Category:</h3>
+
+  <script>
+  // ============================
+  // Get all HTML elements
+  // ============================
+
+  const heightInput = document.getElementById("height");
+  const weightInput = document.getElementById("weight");
+
+  const bmiResult = document.getElementById("resultIndex");
+  const categoryResult = document.getElementById("resultCategory");
+  const message = document.getElementById("check");
+
+  const calculateBtn = document.getElementById("calcBtn");
+
+
+  // ============================
+  // Calculate BMI
+  // Takes height (meters) and weight (kg)
+  // Returns the BMI
+  // ============================
+
+  function calculateBMI(height, weight) {
+    return weight / (height * height);
+  }
+
+
+  // ============================
+  // Decide which BMI category
+  // Returns a string
+  // ============================
+
+  function getCategory(bmi) {
+
+    if (bmi < 18.5) {
+      return "Underweight";
+    }
+
+    if (bmi < 25) {
+      return "Normal";
+    }
+
+    if (bmi < 30) {
+      return "Overweight";
+    }
+
+    return "Obese";
+  }
+
+
+  // ============================
+  // Check if inputs are valid
+  // Returns true or false
+  // ============================
+
+  function isValidInput(height, weight) {
+
+    return height > 0 && weight > 0;
+
+  }
+
+
+  // ============================
+  // Runs when button is clicked
+  // ============================
+
+  calculateBtn.addEventListener("click", function () {
+
+    // Read values from the input boxes
+    let height = Number(heightInput.value.trim());
+    let weight = Number(weightInput.value.trim());
+
+
+    // Validate BEFORE doing calculations
+    if (!isValidInput(height, weight)) {
+
+      message.textContent = "Please enter valid height and weight.";
+
+      // Stop the function immediately
+      return;
+    }
+
+
+    // Clear previous error message
+    message.textContent = "";
+
+
+    // Convert cm → meters
+    height = height / 100;
+
+
+    // Calculate BMI
+    let bmi = calculateBMI(height, weight);
+
+
+    // Display results
+    bmiResult.textContent = `BMI: ${bmi.toFixed(2)}`;
+
+    categoryResult.textContent =
+      `Category: ${getCategory(bmi)}`;
+
+  });
+
+</script>
+  
+</body>
+</html>

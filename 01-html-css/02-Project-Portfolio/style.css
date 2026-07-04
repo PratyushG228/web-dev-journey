@@ -1,0 +1,89 @@
+html{
+  scroll-behavior: smooth; /*scroll behv belongs to html whole thing not just main*/
+}
+
+/* Layout */
+main{
+  max-width: 800px;
+  padding: 20px;
+  font-size: large;
+  margin: 0 auto;
+}
+section{
+  background-color: #1E293B;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+/* Header */
+header{
+  padding: 20px;
+}
+
+/* Global */
+body{
+  background-color: #0B0F19;
+  color: #F3F4F6;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+a{
+  color: #F3F4F6;
+  transition: 0.5s
+}
+a:hover{
+  color: #3B82F6;
+  ;
+}
+
+/* Navigation */
+.navbar{
+  background-color: #1E293B;
+  border-radius: 38px;
+  padding: 7px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+
+
+li{
+  margin-bottom: 10px;
+}
+form{
+  font-size: larger;
+}
+
+
+/* Projects */
+.project-container{
+  display: flex;
+  gap: 20px;
+}
+.project-card { /* Replace with your actual class name for the cards */
+    background-color: #131B2E; /* Lighter than the body, but still dark */
+    border: 2px solid #1E293B; /*A subtle border to define the card edges*/
+    border-radius: 8px;        /* Smooths out the sharp corners */
+    padding:20px;
+    flex: 1;
+    
+}
+@media (max-width: 700px) {
+  .project-container{
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+footer{
+  padding: 20px;
+}

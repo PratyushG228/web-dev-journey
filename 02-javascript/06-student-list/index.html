@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="" id="stdname">
+  <button id="addStd">Add student</button>
+  <p id="count"></p>
+  <ul id="studentList"></ul>
+
+  <script>
+    let addStd = document.getElementById("addStd");
+    let stdname = document.getElementById("stdname");
+    let count = document.getElementById("count");
+    let studentList = document.getElementById("studentList");
+
+    let student = [];
+
+    addStd.addEventListener("click", function(){
+
+      let name = stdname.value.trim();
+
+      if(name == ""){
+        return
+      }
+//========================          Logic for DUPLICATE NAMES        ======================================
+          for (let i = 0; i < student.length; i++) {
+              if (student[i] === name) {
+                  return;
+              }
+
+          }
+
+          student.push(name);  //adding names only after checking duplicate.
+//=========================================================================================================
+
+//===================        Modern JS loigic for DUPLICATION OF NAMES.      ==============================
+
+          // if(student.includes(name)){
+          //   return;
+          // }
+
+//=========================================================================================================
+
+      count.textContent = `Total Students: ${student.length}`; 
+
+      //###  stdname.textContent = ""; // stdname is an input. Inputs don't use .textContent.
+      
+      stdname.value = "";  // inputs use .value to change them. Now this clears the input
+
+      // Update with loops 
+
+      studentList.innerHTML = ""; // clears <ul>
+      
+
+//=============================         Error 1         ===================================================
+
+      // for(i=0; i<Number(student.length) ; i++){  // this is not working becuase
+                                                    //  1. comparng std.length and std{1} this is number v string so doesnt work.
+                                                    // 2.another bug; we are already pushing the name so array becomes; array = {ram, john , john} but theres already duplicate name added so it wont stop duplication of names.
+      //   if(student.length -1 == student[i]){
+      //     return;
+      //   }
+      // }
+
+//========================================================================================================
+
+      for(i=0 ; i<Number(student.length) ; i++){
+        studentList.innerHTML += `<li>${student[i]}</li>`;
+      }
+    })
+
+  </script>
+  
+</body>
+</html>

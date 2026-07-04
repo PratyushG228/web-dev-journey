@@ -1,0 +1,98 @@
+main{
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+body{
+  background-color: rgb(183, 245, 183);
+  font-family: 'Inter',sans-serif;
+  line-height: 1.6;         /*text looks way better*/
+}
+header{
+  /* margin: 20px; */
+  padding: 20px;
+}
+section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+}
+
+
+h1,h2{
+  color: red;
+  font-size: 40px;
+}
+
+p{
+  color: blueviolet;
+  font-size: 18px;
+}
+
+.hero{
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+  /* border: 2px solid black; */
+}
+
+a{
+  transition: 0.3s;
+  color: black;
+}
+a:hover{
+  color: blue;
+}
+button{
+  color: blueviolet;
+}
+
+img{
+  /* width: 300px; */
+  max-width: 100%;
+  border-radius: 10px;
+}
+li {
+  margin-bottom: 10px;
+}
+.navbar{
+  display: flex;
+  align-items: center;
+  /* gap: 20px; */
+  height: 70px;
+  background-color: white;
+  border-radius: 20px;
+  padding:0px 10px;
+
+  justify-content: space-between;
+}
+.nav-link{
+  display: flex;
+  /* justify-content: space-between; this doesnt work */
+}
+.cards{
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 20px;
+  
+}
+.card{
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-right: 30px;
+  flex: 1;
+}
+@media (max-width: 700px) {
+  .cards{
+    flex-direction: column;
+  }
+  
+}
+.cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex: 1;
+}

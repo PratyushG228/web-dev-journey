@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let array = ["Intersteller" , "Inception", "The Dark Knight"]
+    console.log(array[0]);  // leave this as it is because 1st name is always at 0
+    console.log(array[2]);  // this works but when you add other names the value at 2 might be different so we use .LENGTH
+
+    //---------BETTER METHOD-----------
+    //=========ARRAY.LENGTH===========
+    //--------------------------------
+
+    console.log(array[array.length -1]);
+
+
+
+    let food = ["apple", "momo", "meat"];
+    food.push("rice");
+    food.pop();
+    food[1] = "chowmin";
+    console.log(food);
+
+    
+
+  </script>
+  
+</body>
+</html>

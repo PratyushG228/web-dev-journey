@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <h1 id="title">Hello</h1>
+  <button id="btn">CLick me</button> -->
+
+<h1 id="count">0</h1>
+<!-- <p id="record"><p> -->
+<button id="increase">+</button>
+<button id="decrease">-</button>
+<button id="dubble">x</button>
+<button id="reset">Reset</button>
+
+<!-- <P id="emotion">😊 Happy</P>
+<button id="mood">Change mood</button> -->
+
+
+  <script>
+
+//######################################    Lesson 1         ########################################
+
+    // console.log("Hello!");
+    // let title = document.getElementById("title");
+    // title.textContent = "Welcome";
+
+    // let btn = document.getElementById("btn");
+    // btn.addEventListener("click", function(){console.log("Button Clicked")});
+
+    // let count = 0;
+   
+
+    // let countText = document.getElementById("count");
+    // let button = document.getElementById("increase");
+    // let double = document.getElementById("dubble");
+    // let record = document.getElementById("record");
+
+    // button.addEventListener("click", function(){
+    //   count = count + 1;
+    //   countText.textContent = count;
+
+    //   if (count > 10) {
+    //   countText.style.color = "red";
+    // }
+
+    //   if(count > 20){
+    //   record.textContent = "New Record!";
+    
+    // }
+    // if(count > 0){
+    //   resetBtn.style.display = "block";
+    // }
+
+    // });
+
+    // let resetBtn = document.getElementById("reset");
+
+    // resetBtn.addEventListener("click", function(){
+    //   count = 0;
+
+    //   countText.textContent = count;
+    //   countText.style.color = "black";
+    // })
+    // countText.style.color = "red"; doesnt work on outside event listener as it get stuck for 0 and isnt rechecked.
+
+    // double.addEventListener("click", function(){
+    //   count = 2*count;
+    //   countText.textContent = count;
+    //   if (count > 10) {
+    //   countText.style.color = "red";
+    // }
+
+    // if(count > 20){
+    //   record.textContent = "New Record!";
+    
+    // }
+    
+    // })
+    // resetBtn.style.display = "none";
+    
+    // let btn = document.getElementById("mood");
+    // let emotion = document.getElementById("emotion");
+    
+    // btn.addEventListener("click", function(){
+    //   count = count + 1;
+    //   if(count >1){
+        
+        
+    //   }
+    //   if(count ==1 ){
+    //     emotion.textContent = "🫥 Okay";
+    //   }
+    //   else if (count ==2 ) {
+    //     emotion.textContent = "🙁 Sad";
+    //     } 
+    //   else if(count==3 ){
+    //     emotion.textContent = "😊 Happy";
+    //     count = 0;
+    //   }
+      
+      
+    // })
+
+    // ######################################   Lesson 2    ######################################
+
+    let namee = "Pratyush";
+    let age = 18;
+    let color =  "Blue";
+    console.log(namee);
+    console.log(age);
+    console.log(color);
+
+
+    //# UPGRADED COUNTER
+    let count = 0;
+
+    let countText = document.getElementById("count");
+    let increase = document.getElementById("increase");
+    let decrease = document.getElementById("decrease");
+    let dubble = document.getElementById("dubble");
+    let resetBtn = document.getElementById("reset");
+
+    increase.addEventListener("click", function(){
+      count++;
+      countText.textContent = count;
+
+     updateUI();
+    })
+
+    decrease.addEventListener("click", function(){
+      count--;
+      countText.textContent = count;
+
+     updateUI();
+    })
+
+    dubble.addEventListener("click", function(){
+      count*=2;
+      countText.textContent = count;
+
+     updateUI();
+    })
+
+    resetBtn.addEventListener("click", function(){
+      count = 0;
+      countText.textContent = count;
+      countText.style.color = "black";
+    })
+
+
+    // with funtion
+    function updateUI() {
+
+      if(count < 0){
+        countText.style.color = "red";
+      }
+      else if(count%2 == 0){
+        countText.style.color = "blue";
+      }
+      else{
+        countText.style.color = "green";
+      }
+    }
+
+  
+    </script>
+  
+</body>
+</html>

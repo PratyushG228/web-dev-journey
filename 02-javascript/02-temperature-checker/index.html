@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<input type="number" name="temp" id="temp">
+<button id="check">Check</button>
+<p id="result"></p>
+
+  <script>
+    
+    let temperature = document.getElementById("temp");
+    let check = document.getElementById("check");
+    let result = document.getElementById("result");
+
+    // let temp = Number(temperature.value);   putting it outside the click event makes it work right from start converting no number to 0 and always output becomes cold
+
+    check.addEventListener("click", function(){
+
+      let temp = Number(temperature.value)
+      
+      if(temp < 0){
+        result.textContent = "Freezing";
+      }
+      else if(temp>=0 && temp<=19){
+        result.textContent = "COld";
+      }
+      else if(temp>=20 && temp<=29){
+        result.textContent = "Warm";
+      }
+      else{
+        result.textContent = "Hot";
+      }
+    })
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <H1>BMI CALCULATOR</H1>
+  Height(cm):<input type="text" id="height"> <br><br>
+  Weight(kg):<input type="text" name="" id="weight"><br>
+  <button id="calcBtn">Calculate</button>
+  <p id="check"></p>
+  <h3 id="resultIndex">BMI:</h3>
+  <h3 id="resultCatagory">Catagory:</h3>
+
+
+  <script>
+    let heightElement = document.getElementById("height");
+    let weightElement = document.getElementById("weight");
+    let resultIndex = document.getElementById("resultIndex");
+    let resultCatagory = document.getElementById("resultCatagory");
+    let calcBtn = document.getElementById("calcBtn");
+    let check = document.getElementById("check");
+
+
+    function bmiCalculator(height , weight){
+      return weight / (height * height);
+    }
+
+    function catagory(bmi){
+      if(bmi<18.5){
+        return "Underweight"
+      }
+      else if(bmi>=18.5 && bmi<=24.9){
+        return "Normal"
+      }
+      else if(bmi>=25 && bmi<=29.9){
+        return "Overweight"
+      }
+      else{
+        return "Obese"
+      }
+    }
+
+    function checkCdn(weight , height){
+      if(weight<=0 || height<=0){
+        return "Enter appropriate wieght and height values."
+      }
+    }
+
+
+    calcBtn.addEventListener("click", function(){
+      
+      let height = Number(heightElement.value);
+      let weight = Number(weightElement.value);
+
+      height /=100;
+      check.textContent = checkCdn(weight , height);
+
+      if(weight>0 && height>0){
+        
+        let bmi = bmiCalculator(height , weight);
+        // resultIndex = bmiCalculator(height , weight); using this it overwrote the data of varaible ine resultIndex with another integer and the next line acts broken
+        resultIndex.textContent = "BMI: " + bmi.toFixed(2);
+
+        resultCatagory.textContent = "Catagory: "+catagory(bmi);
+      }
+      
+    })
+    
+
+
+  </script>
+</body>
+</html>
